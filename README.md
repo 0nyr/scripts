@@ -1,6 +1,8 @@
 #  🌟 custom_bash  🌟
 A custom visually appealing bash terminal
 
+![GitHub Logo](/example_screenshoot.png)
+
 # 🚀 The concept
 Because messing up with config file can be tricky and dangerous, the idea here is to add a .bash_profile config file for bash as an extention for the original .bashrc which is almost not modified. Hence you can feel free to experiment as much as possible in the .bash_profile file with the ability to remove everything if any problem occur.
 NB: Of course, you can still edit directly the .bashrc config file.
@@ -34,29 +36,30 @@ Ubuntu transparent terminal: https://www.how2shout.com/how-to/change-terminal-co
 
 
 ## 256 Color font attributes
+```shell
 \x1b[38;5;#m foreground, # = 0 - 255
 
 \x1b[48;5;#m background, # = 0 - 255
-
+```
 ## True Color
 ▶: Only works with "echo -e" command, not inside the PS1 variable!
-
+```shell
 \x1b[38;2;r;g;bm r = red, g = green, b = blue foreground
 
 \x1b[48;2;r;g;bm r = red, g = green, b = blue background
-
+```
 ## True Color off 
 ▶: Only works with "echo -e" command, not inside the PS1 variable!
-
+```shell
 off = '\x1b[0m' # off
 
 default = '\x1b[39m' # default foreground
 
 DEFAULT = '\x1b[49m' # default background
-
+```
 ## Font attributes 
 ▶: Only works with "echo -e" command, not inside the PS1 variable!
-
+```shell
 bd = '\x1b[1m' # bold
 
 ft = '\x1b[2m' # faint
@@ -78,16 +81,16 @@ noul = '\x1b[24m' # no underlined
 nobk = '\x1b[25m' # no blink
 
 norv = '\x1b[27m' # no reverse
-
+```
 ## Examples
 ▶: possibility to use RGB colors only with echo -e command
 
 ▶: Inside PS1, rather use the 256 colors available, use Tool> 256 color picker and Tool> 256 color format to help you.
-
+```shell
 echo -e "\x1b[38;2;50;50;50m Welcome BACK \x1b[39m ${BLUE}"
 
 echo -e "\x1b[48;2;100;100;100m Hello boiiii \x1b[49m"
-
+```
 ## Tools
 256 color format: https://misc.flogisoft.com/bash/tip_colors_and_formatting
 
