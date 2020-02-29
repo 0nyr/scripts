@@ -1,10 +1,15 @@
 #  🌟 custom_bash  🌟
+![version](https://img.shields.io/badge/v1.2-ff5f5f?style=for-the-badge&logo=Plex&logoColor=white)
+![shell](https://img.shields.io/badge/bash-5f87ff?style=for-the-badge&logo=GNU-Bash&logoColor=white)
+
 A custom visually appealing bash terminal
 
-![GitHub Logo](/example_screenshoot.png)
+<p align="center">
+	<img src="/example_screenshoot.png" width="802">
+</p>
 
 # 🚀 The concept
-Because messing up with config file can be tricky and dangerous, the idea here is to add a .bash_profile config file for bash as an extention for the original .bashrc which is almost not modified. Hence you can feel free to experiment as much as possible in the .bash_profile file with the ability to remove everything if any problem occur.
+Because messing up with config files can be tricky and dangerous, the idea here is to add a .bash_profile config file for bash as an extention for the original .bashrc which is almost not modified. Hence you can feel free to experiment as much as possible in the .bash_profile file with the ability to remove everything if any problem occur.
 NB: Of course, you can still edit directly the .bashrc config file.
 
 # ⚒ Get more info and tools to edit your own config file
@@ -24,22 +29,25 @@ Ubuntu transparent terminal: https://www.how2shout.com/how-to/change-terminal-co
 
 
 # 🍪 Modify the command prompt (PS1)
-▶: Wrapping the tput output in \[ \] is recommended by the Bash man page. This helps Bash ignore non-printable characters so that it correctly calculates the size of the prompt.
+Some commands, tips and code snippets to edit you prompt
 
-▶: "\[" escape is used to begin a sequence of non-printing characters
+## important notes
+▶: Wrapping the tput output in `\[` `\]` is recommended by the Bash man page. This helps Bash ignore non-printable characters so that it correctly calculates the size of the prompt.
 
-▶: "\]" escape is used to signal the end of such a sequence
+▶: `\[` escape is used to begin a sequence of non-printing characters
 
-▶: "\e" or "\033" or "\x1b" is shorthand for the Escape character
+▶: `\]` escape is used to signal the end of such a sequence
 
-▶: writing in this script BLUE= "any_value" will result in bash to think it is a command because of the space after the = sign, and return an error!
+▶: `\e` or `\033` or `\x1b` is shorthand for the Escape character
 
+▶: writing in this script `BLUE= "any_value"` will result in bash to think it is a command because of the space after the = sign, and return an error!
 
 ## 256 Color font attributes
+▶: This is what you can use to define colors for your prompt, replace # with an int (0 - 255) to pick a color. Use tools to help you.
 ```shell
-\x1b[38;5;#m foreground, # = 0 - 255
+\x1b[38;5;#m (foreground), # = 0 - 255 to pick a specific color 
 
-\x1b[48;5;#m background, # = 0 - 255
+\x1b[48;5;#m (background), # = 0 - 255 to pick a specific color
 ```
 ## True Color
 ▶: Only works with "echo -e" command, not inside the PS1 variable!
