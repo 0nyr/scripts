@@ -1,16 +1,41 @@
 #  🌟 custom_bash  🌟
-![version](https://img.shields.io/badge/v1.2-ff5f5f?style=for-the-badge&logo=Plex&logoColor=white)
+![version](https://img.shields.io/badge/v1.3-ff5f5f?style=for-the-badge&logo=Plex&logoColor=white)
 ![shell](https://img.shields.io/badge/bash-5f87ff?style=for-the-badge&logo=GNU-Bash&logoColor=white)
 
 A custom visually appealing bash terminal
 
 <p align="center">
-	<img src="/example_screenshoot.png" width="802">
+	<img src="/example_screenshoot.png" width="922">
 </p>
 
 # 🚀 The concept
 Because messing up with config files can be tricky and dangerous, the idea here is to add a .bash_profile config file for bash as an extention for the original .bashrc which is almost not modified. Hence you can feel free to experiment as much as possible in the .bash_profile file with the ability to remove everything if any problem occur.
+
 NB: Of course, you can still edit directly the .bashrc config file.
+
+NB: Replace the /home/onyr with your personnal linux home folder
+/home/onyr/.bashrc - The default Bash source file 
+/home/onyr/.bash_profile - Where to edit the Bash source file without interfering with the default one
+/home/onyr/Documents/bin_onyr/bash_aliases_onyr.sh - Where to declare the aliases for our own commands
+/home/onyr/Documents/code/bash/custom_bash/Documents/bin_onyr/vocabulary_en_fr/random_voca.sh - voca command shell file
+/home/onyr/Documents/code/bash/custom_bash/Documents/bin_onyr/vocabulary_en_fr/Main.class - Java class file for voca command
+/home/onyr/Documents/code/bash/custom_bash/Documents/bin_onyr/vocabulary_en_fr/res/vocabulary_en_fr.txt - dictionary file
+
+# 🚨 New 1.3 Version 
+## Learn your english vocabulary in your terminal ;) (seriously)
+I added a new command: `voca [number, default = 1][-e]` that I programmed in Java. This command takes a number as parameter, the default value being 1. This command select a random line in the vocabulary_en_fr.txt file and displays it. I modified the .bash_profile and bash_aliases_onyr.sh to make the command run at launch.
+
+
+```shell
+voca [OPTION]
+
+AVAILABLE OPTIONS
+	<int> - Display <int> random vocabulary words from vocabulary_en_fr.txt
+	-e - Launch gedit to modify the vocabulary_en_fr.txt file in case you 
+	     what to add new words or correct mistakes
+```
+
+NB: You can dissable it by just removing the line `voca` in bash_aliases_onyr.sh.
 
 # ⚒ Get more info and tools to edit your own config file
 Bash/Prompt customization: https://wiki.archlinux.org/index.php/Bash/Prompt_customization
