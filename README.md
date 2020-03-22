@@ -14,11 +14,19 @@ Because messing up with config files can be tricky and dangerous, the idea here 
 NB: Of course, you can still edit directly the .bashrc config file.
 
 NB: Replace the /home/onyr with your personnal linux home folder
+
+## Files description
+
 /home/onyr/.bashrc - The default Bash source file 
+
 /home/onyr/.bash_profile - Where to edit the Bash source file without interfering with the default one
+
 /home/onyr/Documents/bin_onyr/bash_aliases_onyr.sh - Where to declare the aliases for our own commands
+
 /home/onyr/Documents/code/bash/custom_bash/Documents/bin_onyr/vocabulary_en_fr/random_voca.sh - voca command shell file
+
 /home/onyr/Documents/code/bash/custom_bash/Documents/bin_onyr/vocabulary_en_fr/Main.class - Java class file for voca command
+
 /home/onyr/Documents/code/bash/custom_bash/Documents/bin_onyr/vocabulary_en_fr/res/vocabulary_en_fr.txt - dictionary file
 
 # 🚨 New 1.3 Version 
