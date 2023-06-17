@@ -6,5 +6,6 @@ chmod +x "${APP_PATH}vocabulary_en_fr/random_voca.sh"
 alias voca3="${APP_PATH}vocabulary_en_fr/random_voca.sh 3"
 alias voca="${APP_PATH}vocabulary_en_fr/random_voca.sh" #get a random vocabulary line from vocabulary_en_fr.txt personal dictionary
 alias vocae="gedit ${APP_PATH}vocabulary_en_fr/res/vocabulary_en_fr.txt" # edit voca file
+
 # run personal commands on start
-voca
+#voca
