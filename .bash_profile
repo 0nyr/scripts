@@ -68,7 +68,7 @@ current_machine="\\h"
 working_directory="\\W"
 pronter="❯ "
 
-export PS1=" ${COLOR1}❮ ${BLUE}${current_user} ★  ${current_machine}❯ ${COLOR2}❮ ${working_directory}❯${COLOR1}${pronter}${NOCOLOR}"
+export PS1=" ${COLOR1}❮${BLUE}${current_user} ★ ${current_machine}❯ ${COLOR2}❮${working_directory}❯${COLOR1}${pronter}${NOCOLOR}"
 
 # welcome message, generated with: http://www.patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=%20-%20ONYR%20-, using font: ANSI Shadow
 # WARN: can't use the \[\] notation with echo -e
@@ -83,10 +83,18 @@ echo -e "
 
 
 ### [ADD ALIAS FILE FOR PERSONAL COMMANDS]
-BIN_ONYR_PATH="/home/onyr/Documents/bin_onyr"
-chmod +x "${BIN_ONYR_PATH}/bash_aliases_onyr.sh" #grant run permission, file containing aliases
-source "${BIN_ONYR_PATH}/bash_aliases_onyr.sh"
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:~/bin_onyr"
+chmod +x "${CUSTOM_BASH_PATH}.bash_aliases" #grant run permission, file containing aliases
+source ${CUSTOM_BASH_PATH}.bash_aliases
 
 #test
 #alias greet3="~/bin_onyr/greetings_codecademy.sh 3"
+
+
+
+# ONYR's MESS
+
+### pgAdmin4
+export PATH="/usr/pgadmin4/bin:/home/onyr/.cargo/bin:$PATH"
+
+[ -f "/home/onyr/.ghcup/env" ] && source "/home/onyr/.ghcup/env" # ghcup-env
+. "$HOME/.cargo/env"

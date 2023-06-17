@@ -1,5 +1,3 @@
-### [DEFAULT BASH PROFILE .bashrc LINKED WITH ADDITIONAL BASH PROFILE .bash_profile]
-
 # .bashrc
 
 # Source global definitions
@@ -43,6 +41,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-### [link Onyr personal bash configuration file]
-CUSTOM_BASH_PATH="/home/onyr/custom_bash/"
-source ${CUSTOM_BASH_PATH}.bash_profile
+# ONYR's MESS
+
+### pgAdmin4
+export PATH="/usr/pgadmin4/bin:/home/onyr/.cargo/bin:$PATH"
+
+
+[ -f "/home/onyr/.ghcup/env" ] && source "/home/onyr/.ghcup/env" # ghcup-env
+. "$HOME/.cargo/env"
