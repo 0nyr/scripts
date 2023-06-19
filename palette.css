@@ -1,0 +1,16 @@
+/* Onyr custom color palette */
+:root {
+    --background_window_dark: #1c2128;
+    --background_window_normal: #22272e;
+    --background_window_light: #2d333b;
+
+    --text-normal: #adbac7;
+    --text-bright: #dcdcdc;
+
+    --yellow: #f0b746;
+    --orange: #ff8700; /* xTerm 208 */
+    --pink: #d7005f; /* xTerm 161 */
+    --green: #00af87; /* xTerm 36 - primary */
+    --blue: #5f87ff; /* xTerm 69 - secondary */
+    --cyan: #00afff; /* xTerm 39 */
+}

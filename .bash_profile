@@ -61,8 +61,8 @@
 
 ## PS1 variables
 #COLOR1="\[\e[38;5;203m\]""
-COLOR1="\[\e[38;5;72m\]"
-COLOR2="\[\e[38;5;69m\]" 
+COLOR1="\[\e[38;5;36m\]"
+COLOR2="\[\e[38;5;69m\]"
 NOCOLOR="\[\e[0m\]"
 current_user="\\u"
 current_machine="\\h"
