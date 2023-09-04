@@ -46,3 +46,20 @@ unset __conda_setup
 ### [link Onyr personal bash configuration file]
 CUSTOM_BASH_PATH="/home/onyr/custom_bash/"
 source ${CUSTOM_BASH_PATH}.bash_profile
+
+### CUDA
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+
+### Nix
+#export NIX_PATH=nixpkgs=/home/onyr/.nix-defexpr/channels/nixpkgs
+# Check if not on NixOS
+if [[ ! -e /etc/NIXOS ]]; then
+    # check if Nix is installed
+    if [ -e "$HOME/.nix-defexpr/channels/nixpkgs" ]; then
+        export NIX_PATH=nixpkgs=/home/onyr/.nix-defexpr/channels/nixpkgs
+    fi
+fi
+
+### direnv
+eval "$(direnv hook bash)"

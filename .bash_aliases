@@ -4,5 +4,10 @@ chmod +x "${APP_PATH}/app_aliases.sh" #grant run permission, file containing ali
 source "${APP_PATH}/app_aliases.sh"
 
 # installed softwares
-alias kitty='/home/onyr/.local/kitty.app/bin/kitty'
-alias kitten='/home/onyr/.local/kitty.app/bin/kitten'
+# Check if not on NixOS
+if [[ ! -e /etc/NIXOS ]]; then
+  # installed softwares (for non-NixOS)
+  alias kitty='/home/onyr/.local/kitty.app/bin/kitty'
+  alias kitten='/home/onyr/.local/kitty.app/bin/kitten'
+fi
+
