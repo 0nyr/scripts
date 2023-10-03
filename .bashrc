@@ -63,3 +63,7 @@ fi
 
 ### direnv
 eval "$(direnv hook bash)"
+
+### VSCode
+#[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
+

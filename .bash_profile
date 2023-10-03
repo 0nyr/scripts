@@ -69,7 +69,8 @@ current_machine="\\h"
 working_directory="\\W"
 pronter="❯ "
 
-export PS1=" ${COLOR1}❮${BLUE}${current_user} ★ ${current_machine}❯ ${COLOR2}❮${working_directory}❯${COLOR1}${pronter}${NOCOLOR}"
+export PS1=" ${COLOR1}❮${current_user} ★ ${current_machine}❯ ${COLOR2}❮${working_directory}❯${COLOR1}${pronter}${NOCOLOR}"
+#export PS1="\u@\h:\W\$ "
 
 # welcome message, generated with: http://www.patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=%20-%20ONYR%20-, using font: ANSI Shadow
 # WARN: can't use the \[\] notation with echo -e
