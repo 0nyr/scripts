@@ -96,7 +96,7 @@ source ${CUSTOM_BASH_PATH}.bash_aliases
 # ONYR's MESS
 
 ### pgAdmin4
-export PATH="/usr/pgadmin4/bin:/home/onyr/.cargo/bin:$PATH"
+export PATH="/usr/pgadmin4/bin:/home/onyr/.cargo/bin:/home/onyr/custom_bash/scripts:$PATH"
 
 [ -f "/home/onyr/.ghcup/env" ] && source "/home/onyr/.ghcup/env" # ghcup-env
 . "$HOME/.cargo/env"
