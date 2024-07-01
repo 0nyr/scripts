@@ -7,7 +7,7 @@ Custom configs around **Bash**.
 
 ![exampl img](./img/example_screenshoot.png)
 
-# 🚀 The concept
+# 🚀 Setup
 
 This repository is a handy place to hold small terminal apps and bash configs.
 

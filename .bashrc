@@ -1,4 +1,11 @@
-### [DEFAULT BASH PROFILE .bashrc LINKED WITH ADDITIONAL BASH PROFILE .bash_profile]
+### [NON-DEFAULT BASH PROFILE .bashrc LINKED WITH ADDITIONAL BASH PROFILE .bash_profile]
+#
+# This 0nyr's custom bashrc file
+#
+# Initial setup:
+#   Erase (backup) original .bashrc. Then, use a symlink to this file as a replacement.
+#       0. mv ~/.bashrc ~/.bashrc.bak
+#       1. ln -s /home/onyr/scripts/.bashrc ~/.bashrc
 
 # .bashrc
 
