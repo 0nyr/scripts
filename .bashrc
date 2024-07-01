@@ -64,8 +64,10 @@ if [[ ! -e /etc/NIXOS ]]; then
     fi
 fi
 
-### direnv
-eval "$(direnv hook bash)"
+### direnv if installed
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook bash)"
+fi
 
 ### VSCode
 #[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
