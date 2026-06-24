@@ -50,10 +50,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-### [link Onyr personal bash configuration file]
-CUSTOM_BASH_PATH="/home/onyr/custom_bash/"
-source ${CUSTOM_BASH_PATH}.bash_profile
-
 ### CUDA
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
@@ -68,9 +64,14 @@ if [[ ! -e /etc/NIXOS ]]; then
     fi
 fi
 
-### direnv
-eval "$(direnv hook bash)"
+### direnv if installed
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook bash)"
+fi
 
 ### VSCode
 #[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
 
+### [link Onyr personal bash configuration file]
+CUSTOM_BASH_PATH="/home/onyr/scripts/"
+source ${CUSTOM_BASH_PATH}.bash_profile
