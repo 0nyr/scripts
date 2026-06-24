@@ -8,6 +8,8 @@ CUSTOM_SCRIPTS_PATH="${CUSTOM_BASH_PATH}scripts/"
 chmod +x "${CUSTOM_SCRIPTS_PATH}/scripts_aliases.sh" #grant run permission, file containing aliases
 source "${CUSTOM_SCRIPTS_PATH}/scripts_aliases.sh"
 
+# command aliases
+alias claude-dsp='claude --dangerously-skip-permissions'
 
 # installed softwares
 # Check if not on NixOS
