@@ -10,6 +10,7 @@ source "${CUSTOM_SCRIPTS_PATH}/scripts_aliases.sh"
 
 # command aliases
 alias claude-dsp='claude --dangerously-skip-permissions'
+alias codex-dsp='codex --dangerously-bypass-approvals-and-sandbox'
 
 # installed softwares
 # Check if not on NixOS
