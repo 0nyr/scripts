@@ -39,10 +39,6 @@ unset rc
 CUSTOM_BASH_PATH="/home/onyr/scripts/"
 source ${CUSTOM_BASH_PATH}.bash_profile
 
-### CUDA
-export PATH=/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-
 ### Nix
 #export NIX_PATH=nixpkgs=/home/onyr/.nix-defexpr/channels/nixpkgs
 # Check if not on NixOS
