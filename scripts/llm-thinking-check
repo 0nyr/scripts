@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+"""Look for the Qwen "tool call inside the thinking block" bug in opencode sessions.
+
+With thinking on, Qwen3.5 and Qwen3.6 sometimes write their tool call inside
+the thinking block, and llama.cpp then ends the answer without running it
+(llama.cpp issue 20837). This script reads the opencode session database in
+read-only mode and lists the parts that contain tool-call markup outside a
+real tool part, grouped by part type, with the session and the time.
+
+Usage: llm-thinking-check [--days N] [--db PATH]
+
+The schema of the opencode v2 database (session_part.type, session_part.data)
+was read on an empty database on 2026-11-17, so the part type names used for
+reasoning are not known yet. The script therefore searches every part, and
+prints the part types it meets, so the first real sessions tell which type
+holds the thinking. If it hits, switch the session to a ":nothink" model.
+"""
+
+import argparse
+import json
+import re
+import sqlite3
+import sys
+import time
+from collections import Counter
+from pathlib import Path
+
+DEFAULT_DB = Path.home() / ".local/share/opencode/opencode.db"
+# XML tool-call formats of the Qwen templates (Qwen3 and Qwen3-Coder style).
+MARKUP = re.compile(r"<tool_call>|<function=|<parameter=")
+TOOL_PART = re.compile(r"tool", re.IGNORECASE)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--days", type=float, default=7.0, help="look back this many days (default 7)")
+    ap.add_argument("--db", type=Path, default=DEFAULT_DB)
+    args = ap.parse_args()
+
+    if not args.db.exists():
+        print(f"no opencode database at {args.db}", file=sys.stderr)
+        return 2
+    con = sqlite3.connect(f"file:{args.db}?mode=ro", uri=True)
+    # time_created is in milliseconds in opencode's tables.
+    since_ms = int((time.time() - args.days * 86400) * 1000)
+
+    rows = con.execute(
+        "SELECT p.session_id, p.message_id, p.type, p.time_created, p.data, s.slug "
+        "FROM session_part p LEFT JOIN session_v2 s ON s.id = p.session_id "
+        "WHERE p.time_created >= ? ORDER BY p.time_created",
+        (since_ms,),
+    ).fetchall()
+
+    types = Counter(r[2] for r in rows)
+    hits = []
+    for session_id, message_id, ptype, created, data, slug in rows:
+        if TOOL_PART.search(ptype or ""):
+            continue  # a real, parsed tool call
+        if MARKUP.search(data or ""):
+            hits.append((created, slug or session_id, ptype, data))
+
+    print(f"{len(rows)} parts in the last {args.days:g} days, part types: {dict(types)}")
+    if not hits:
+        print("no tool-call markup outside tool parts")
+        return 0
+    print(f"{len(hits)} part(s) with tool-call markup outside tool parts:")
+    for created, session, ptype, data in hits:
+        when = time.strftime("%Y-%m-%d %H:%M", time.localtime(created / 1000))
+        try:
+            text = json.dumps(json.loads(data), ensure_ascii=False)
+        except ValueError:
+            text = data
+        m = MARKUP.search(text)
+        start = max(0, m.start() - 120) if m else 0
+        print(f"- {when}  session {session}  part type {ptype}")
+        print(f"  ...{text[start:start + 300]}...")
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
