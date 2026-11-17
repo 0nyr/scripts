@@ -60,3 +60,5 @@ fi
 ### [link Onyr personal bash configuration file]
 CUSTOM_BASH_PATH="/home/onyr/scripts/"
 source ${CUSTOM_BASH_PATH}.bash_profile
+# opencode v2 (Nix profile, github:noblepayne/opencode-flake), installed as opencode2
+alias opencode=opencode2
